@@ -10,7 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
 // Auth
-import { handleLogin } from "@/lib/auth/auth";
+import { handleLogin } from "@/lib/actions/auth/auth";
 
 export function LoginForm({
   className,

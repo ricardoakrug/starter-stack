@@ -5,8 +5,10 @@ import {
   text,
   primaryKey,
   integer,
+  jsonb,
 } from "drizzle-orm/pg-core";
 import type { AdapterAccountType } from "next-auth/adapters";
+import { emailFrequencyEnum } from "./enums";
 
 export const users = pgTable("user", {
   id: text("id")
@@ -16,6 +18,37 @@ export const users = pgTable("user", {
   email: text("email").unique(),
   emailVerified: timestamp("emailVerified", { mode: "date" }),
   image: text("image"),
+  username: text("username").unique(),
+  about: text("about"),
+  streetAddress: text("street_address"),
+  city: text("city"),
+  state: text("state"),
+  postalCode: text("postal_code"),
+  country: text("country"),
+  taxId: text("tax_id"),
+  socialMedia: jsonb("social_media"),
+  createdAt: timestamp("created_at", { mode: "date" }).notNull().defaultNow(),
+  updatedAt: timestamp("updated_at", { mode: "date" }).notNull().defaultNow(),
+});
+
+export const userSettings = pgTable("user_settings", {
+  id: text("id")
+    .primaryKey()
+    .$defaultFn(() => crypto.randomUUID()),
+  userId: text("userId").references(() => users.id),
+  emailEnabled: boolean("email_enabled").notNull().default(true),
+  emailFrequency: emailFrequencyEnum("email_frequency")
+    .notNull()
+    .default("daily"),
+  emailAccountUpdates: boolean("email_account_updates").notNull().default(true),
+  emailSecurityAlerts: boolean("email_security_alerts").notNull().default(true),
+  emailMarketing: boolean("email_marketing").notNull().default(true),
+  pushEnabled: boolean("push_enabled").notNull().default(true),
+  pushAccountUpdates: boolean("push_account_updates").notNull().default(true),
+  pushSecurityAlerts: boolean("push_security_alerts").notNull().default(true),
+  pushMarketing: boolean("push_marketing").notNull().default(true),
+  locale: text("locale").notNull().default("en"),
+  language: text("language").notNull().default("en"),
 });
 
 export const accounts = pgTable(
