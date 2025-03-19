@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from 'next/image';
 
 interface MenuItem {
   title: string;
@@ -26,56 +26,56 @@ interface FooterProps {
 
 const Footer = ({
   logo = {
-    src: "https://www.shadcnblocks.com/images/block/block-1.svg",
-    alt: "blocks for shadcn/ui",
-    title: "Shadcnblocks.com",
-    url: "https://www.shadcnblocks.com",
+    src: 'https://www.shadcnblocks.com/images/block/block-1.svg',
+    alt: 'blocks for shadcn/ui',
+    title: 'Shadcnblocks.com',
+    url: 'https://www.shadcnblocks.com',
   },
-  tagline = "Components made easy.",
+  tagline = 'Components made easy.',
   menuItems = [
     {
-      title: "Product",
+      title: 'Product',
       links: [
-        { text: "Overview", url: "#" },
-        { text: "Pricing", url: "#" },
-        { text: "Marketplace", url: "#" },
-        { text: "Features", url: "#" },
-        { text: "Integrations", url: "#" },
-        { text: "Pricing", url: "#" },
+        { text: 'Overview', url: '#' },
+        { text: 'Pricing', url: '#' },
+        { text: 'Marketplace', url: '#' },
+        { text: 'Features', url: '#' },
+        { text: 'Integrations', url: '#' },
+        { text: 'Pricing', url: '#' },
       ],
     },
     {
-      title: "Company",
+      title: 'Company',
       links: [
-        { text: "About", url: "#" },
-        { text: "Team", url: "#" },
-        { text: "Blog", url: "#" },
-        { text: "Careers", url: "#" },
-        { text: "Contact", url: "#" },
-        { text: "Privacy", url: "#" },
+        { text: 'About', url: '#' },
+        { text: 'Team', url: '#' },
+        { text: 'Blog', url: '#' },
+        { text: 'Careers', url: '#' },
+        { text: 'Contact', url: '#' },
+        { text: 'Privacy', url: '#' },
       ],
     },
     {
-      title: "Resources",
+      title: 'Resources',
       links: [
-        { text: "Help", url: "#" },
-        { text: "Sales", url: "#" },
-        { text: "Advertise", url: "#" },
+        { text: 'Help', url: '#' },
+        { text: 'Sales', url: '#' },
+        { text: 'Advertise', url: '#' },
       ],
     },
     {
-      title: "Social",
+      title: 'Social',
       links: [
-        { text: "Twitter", url: "#" },
-        { text: "Instagram", url: "#" },
-        { text: "LinkedIn", url: "#" },
+        { text: 'Twitter', url: '#' },
+        { text: 'Instagram', url: '#' },
+        { text: 'LinkedIn', url: '#' },
       ],
     },
   ],
-  copyright = "© 2024 Copyright. All rights reserved.",
+  copyright = '© 2024 Copyright. All rights reserved.',
   bottomLinks = [
-    { text: "Terms and Conditions", url: "#" },
-    { text: "Privacy Policy", url: "#" },
+    { text: 'Terms and Conditions', url: '#' },
+    { text: 'Privacy Policy', url: '#' },
   ],
 }: FooterProps) => {
   return (
@@ -86,13 +86,7 @@ const Footer = ({
             <div className="col-span-2 mb-8 lg:mb-0">
               <div className="flex items-center gap-2 lg:justify-start">
                 <a href="https://shadcnblocks.com">
-                  <Image
-                    src={logo.src}
-                    alt={logo.alt}
-                    title={logo.title}
-                    width={40}
-                    height={40}
-                  />
+                  <Image src={logo.src} alt={logo.alt} title={logo.title} width={40} height={40} />
                 </a>
                 <p className="text-xl font-semibold">{logo.title}</p>
               </div>
@@ -103,10 +97,7 @@ const Footer = ({
                 <h3 className="mb-4 font-bold">{section.title}</h3>
                 <ul className="space-y-4 text-muted-foreground">
                   {section.links.map((link, linkIdx) => (
-                    <li
-                      key={linkIdx}
-                      className="font-medium hover:text-primary"
-                    >
+                    <li key={linkIdx} className="font-medium hover:text-primary">
                       <a href={link.url}>{link.text}</a>
                     </li>
                   ))}

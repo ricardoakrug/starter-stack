@@ -1,0 +1,153 @@
+# Cursor AI Instructions
+
+This file contains instructions and guidelines for AI interactions with this codebase.
+
+## Project Overview
+
+This is a modern full-stack boilerplate project using Next.js 15, TypeScript, and various other modern web technologies. The project aims to provide a solid foundation for building scalable web applications.
+
+## AI Guidelines
+
+### Code Generation
+
+- Follow TypeScript best practices and avoid using `any` type
+- Use functional components with React hooks
+- Implement proper error handling and loading states
+- Include proper TypeScript types and interfaces
+- Follow the project's established patterns and conventions
+
+### File Organization
+
+- Place new components in appropriate directories under `src/components`
+- Add new pages under `src/app`
+- Keep utility functions in `src/lib`
+- Follow the established project structure
+
+### Styling
+
+- Use Tailwind CSS for styling
+- Follow the project's design system
+- Ensure responsive design principles
+- Use the provided UI components from Radix UI
+
+### Database
+
+- Use Drizzle ORM for database operations
+- Follow the established schema patterns
+- Include proper migrations when making schema changes
+
+### Testing
+
+- Include tests for new features
+- Follow the project's testing patterns
+- Ensure proper test coverage
+
+### Documentation
+
+- Add JSDoc comments for new functions and components
+- Update relevant documentation files
+- Follow the established documentation patterns
+
+### Security
+
+- Follow security best practices
+- Implement proper authentication and authorization
+- Handle sensitive data appropriately
+- Use environment variables for sensitive information
+
+### Performance
+
+- Optimize for performance
+- Implement proper caching strategies
+- Follow Next.js best practices for data fetching
+- Use proper image optimization
+
+## Common Tasks
+
+### Adding New Features
+
+1. Create appropriate TypeScript interfaces
+2. Implement the feature following project patterns
+3. Add necessary tests
+4. Update documentation
+5. Add to CHANGELOG.md
+
+### Database Changes
+
+1. Update schema in appropriate location
+2. Create and test migrations
+3. Update related code
+4. Update documentation
+
+### API Routes
+
+1. Follow RESTful conventions
+2. Implement proper error handling
+3. Add input validation
+4. Include proper TypeScript types
+5. Add tests
+
+### UI Components
+
+1. Use Radix UI components when possible
+2. Follow accessibility guidelines
+3. Implement responsive design
+4. Add proper TypeScript props
+5. Include tests
+
+## Code Style
+
+- Use functional components
+- Implement proper error boundaries
+- Use proper TypeScript types
+- Follow ESLint and Prettier rules
+- Use proper naming conventions
+
+## Testing Guidelines
+
+- Write unit tests for utilities
+- Write integration tests for components
+- Write E2E tests for critical paths
+- Follow testing best practices
+
+## Documentation Requirements
+
+- Add JSDoc comments
+- Update README.md when needed
+- Document new environment variables
+- Update CHANGELOG.md
+
+## Security Considerations
+
+- Use proper authentication
+- Implement proper authorization
+- Handle sensitive data securely
+- Follow security best practices
+
+## Performance Guidelines
+
+- Optimize images
+- Implement proper caching
+- Use proper data fetching patterns
+- Follow Next.js performance best practices
+
+## Error Handling
+
+- Implement proper error boundaries
+- Use proper error logging
+- Handle edge cases
+- Provide user-friendly error messages
+
+## Accessibility
+
+- Follow WCAG guidelines
+- Use proper ARIA attributes
+- Ensure keyboard navigation
+- Test with screen readers
+
+## Internationalization
+
+- Use proper i18n patterns
+- Handle different locales
+- Support RTL languages
+- Use proper date/number formatting

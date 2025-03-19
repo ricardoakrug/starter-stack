@@ -1,19 +1,19 @@
-"use client";
+'use client';
 
-import { UserCircleIcon } from "@heroicons/react/24/solid";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { UserCircleIcon } from '@heroicons/react/24/solid';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
+} from '@/components/ui/select';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 import {
   Form,
   FormControl,
@@ -21,23 +21,23 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
-import { profileFormSchema } from "@/lib/schemas/profile";
-import { ProfileFormValues } from "@/lib/types/profile";
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { getUserData, updateUserProfile } from "@/lib/actions/user/user";
-import { useEffect } from "react";
-import { toast } from "sonner";
-import { countries } from "@/lib/consts/countries";
-import { Separator } from "@/components/ui/separator";
-import { Loading } from "@/components/ui/loading";
-import { Skeleton } from "@/components/ui/skeleton";
+} from '@/components/ui/form';
+import { profileFormSchema } from '@/lib/schemas/profile';
+import { ProfileFormValues } from '@/lib/types/profile';
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { getUserData, updateUserProfile } from '@/lib/actions/user/user';
+import { useEffect } from 'react';
+import { toast } from 'sonner';
+import { countries } from '@/lib/consts/countries';
+import { Separator } from '@/components/ui/separator';
+import { Loading } from '@/components/ui/loading';
+import { Skeleton } from '@/components/ui/skeleton';
 
 export default function ProfileForm() {
   const queryClient = useQueryClient();
 
   const { data, isLoading, error } = useQuery({
-    queryKey: ["userData"],
+    queryKey: ['userData'],
     queryFn: getUserData,
     retry: 1,
   });
@@ -47,35 +47,34 @@ export default function ProfileForm() {
       return updateUserProfile(values);
     },
     onSuccess: async () => {
-      await queryClient.invalidateQueries({ queryKey: ["userData"] });
+      await queryClient.invalidateQueries({ queryKey: ['userData'] });
 
-      toast.success("Profile updated successfully", {
-        description: "Your changes have been saved.",
+      toast.success('Profile updated successfully', {
+        description: 'Your changes have been saved.',
       });
     },
-    onError: (error) => {
-      toast.error("Failed to update profile", {
-        description:
-          "Please try again or contact support if the problem persists.",
+    onError: error => {
+      toast.error('Failed to update profile', {
+        description: 'Please try again or contact support if the problem persists.',
       });
-      console.error("[PROFILE_UPDATE]", error);
+      console.error('[PROFILE_UPDATE]', error);
     },
   });
 
   const form = useForm<ProfileFormValues>({
     resolver: zodResolver(profileFormSchema),
     defaultValues: {
-      name: "",
-      email: "",
-      username: "",
-      about: "",
-      image: "",
-      streetAddress: "",
-      city: "",
-      state: "",
-      postalCode: "",
-      country: "",
-      taxId: "",
+      name: '',
+      email: '',
+      username: '',
+      about: '',
+      image: '',
+      streetAddress: '',
+      city: '',
+      state: '',
+      postalCode: '',
+      country: '',
+      taxId: '',
       socialMedia: {},
     },
   });
@@ -84,18 +83,18 @@ export default function ProfileForm() {
   useEffect(() => {
     if (data && !form.formState.isDirty) {
       form.reset({
-        name: data.user?.[0]?.name || "",
-        email: data.user?.[0]?.email || "",
-        username: data.user?.[0]?.username || "",
-        about: data.user?.[0]?.about || "",
-        image: data.user?.[0]?.image || "",
-        streetAddress: data.user?.[0]?.streetAddress || "",
-        city: data.user?.[0]?.city || "",
-        state: data.user?.[0]?.state || "",
-        postalCode: data.user?.[0]?.postalCode || "",
-        country: data.user?.[0]?.country || "",
-        taxId: data.user?.[0]?.taxId || "",
-        socialMedia: data.user?.[0]?.socialMedia || {},
+        name: data.user?.name || '',
+        email: data.user?.email || '',
+        username: data.user?.username || '',
+        about: data.user?.about || '',
+        image: data.user?.image || '',
+        streetAddress: data.user?.streetAddress || '',
+        city: data.user?.city || '',
+        state: data.user?.state || '',
+        postalCode: data.user?.postalCode || '',
+        country: data.user?.country || '',
+        taxId: data.user?.taxId || '',
+        socialMedia: data.user?.socialMedia || {},
       });
     }
   }, [data, form]);
@@ -104,7 +103,7 @@ export default function ProfileForm() {
     try {
       await updateMutation.mutateAsync(values);
     } catch (error) {
-      console.error("Form submission error:", error);
+      console.error('Form submission error:', error);
       // Error is already handled by the mutation
     }
   };
@@ -134,8 +133,8 @@ export default function ProfileForm() {
             variant="outline"
             className="mt-4"
             onClick={() => {
-              queryClient.invalidateQueries({ queryKey: ["userData"] });
-              toast.info("Refreshing profile data...");
+              queryClient.invalidateQueries({ queryKey: ['userData'] });
+              toast.info('Refreshing profile data...');
             }}
           >
             Try again
@@ -151,12 +150,9 @@ export default function ProfileForm() {
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-12">
           <div className="grid grid-cols-1 gap-x-8 md:grid-cols-3">
             <div>
-              <h2 className="text-base/7 font-semibold text-foreground">
-                Profile
-              </h2>
+              <h2 className="text-base/7 font-semibold text-foreground">Profile</h2>
               <p className="mt-1 text-sm/6 text-muted-foreground">
-                This information will be displayed publicly so be careful what
-                you share.
+                This information will be displayed publicly so be careful what you share.
               </p>
             </div>
 
@@ -195,10 +191,7 @@ export default function ProfileForm() {
               <div className="col-span-full">
                 <Label htmlFor="photo">Photo</Label>
                 <div className="mt-2 flex items-center gap-x-3">
-                  <UserCircleIcon
-                    aria-hidden="true"
-                    className="size-12 text-gray-300"
-                  />
+                  <UserCircleIcon aria-hidden="true" className="size-12 text-gray-300" />
                   <Button
                     type="button"
                     variant="outline"
@@ -215,9 +208,7 @@ export default function ProfileForm() {
 
           <div className="grid grid-cols-1 gap-x-8 md:grid-cols-3">
             <div>
-              <h2 className="text-base/7 font-semibold text-foreground">
-                Personal Information
-              </h2>
+              <h2 className="text-base/7 font-semibold text-foreground">Personal Information</h2>
               <p className="mt-1 text-sm/6 text-muted-foreground">
                 Use a permanent address where you can receive mail.
               </p>
@@ -328,17 +319,14 @@ export default function ProfileForm() {
                 render={({ field }) => (
                   <FormItem className="sm:col-span-3">
                     <FormLabel>Country</FormLabel>
-                    <Select
-                      onValueChange={field.onChange}
-                      defaultValue={field.value}
-                    >
+                    <Select onValueChange={field.onChange} defaultValue={field.value}>
                       <FormControl>
                         <SelectTrigger className="w-full">
                           <SelectValue placeholder="Select a country" />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
-                        {countries.map((country) => (
+                        {countries.map(country => (
                           <SelectItem key={country.code} value={country.code}>
                             {country.name}
                           </SelectItem>
@@ -355,15 +343,11 @@ export default function ProfileForm() {
           <Separator />
 
           <div className="mt-6 flex items-center justify-end gap-x-6">
-            <Button
-              type="button"
-              variant="ghost"
-              disabled={updateMutation.isPending}
-            >
+            <Button type="button" variant="ghost" disabled={updateMutation.isPending}>
               Cancel
             </Button>
             <Button type="submit" disabled={updateMutation.isPending}>
-              {updateMutation.isPending ? "Saving..." : "Save"}
+              {updateMutation.isPending ? 'Saving...' : 'Save'}
             </Button>
           </div>
         </form>

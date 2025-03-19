@@ -1,13 +1,13 @@
-import { Skeleton } from "@/components/ui/skeleton";
+import { Skeleton } from '@/components/ui/skeleton';
 
 interface LoadingProps {
-  variant?: "default" | "card" | "form" | "table" | "list";
+  variant?: 'default' | 'card' | 'form' | 'table' | 'list';
   className?: string;
 }
 
-export function Loading({ variant = "default", className }: LoadingProps) {
+export function Loading({ variant = 'default', className }: LoadingProps) {
   switch (variant) {
-    case "card":
+    case 'card':
       return (
         <div className={className}>
           <Skeleton className="h-48 w-full rounded-t-lg" />
@@ -18,7 +18,7 @@ export function Loading({ variant = "default", className }: LoadingProps) {
           </div>
         </div>
       );
-    case "form":
+    case 'form':
       return (
         <div className={className}>
           <div className="space-y-4">
@@ -37,7 +37,7 @@ export function Loading({ variant = "default", className }: LoadingProps) {
           </div>
         </div>
       );
-    case "table":
+    case 'table':
       return (
         <div className={className}>
           <div className="space-y-3">
@@ -49,7 +49,7 @@ export function Loading({ variant = "default", className }: LoadingProps) {
           </div>
         </div>
       );
-    case "list":
+    case 'list':
       return (
         <div className={className}>
           <div className="space-y-3">

@@ -1,18 +1,18 @@
-import { Skeleton } from "@/components/ui/skeleton";
+import { Skeleton } from '@/components/ui/skeleton';
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
   SidebarRail,
-} from "@/components/ui/sidebar";
+} from '@/components/ui/sidebar';
 import {
   SidebarGroup,
   SidebarGroupLabel,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "@/components/ui/sidebar";
+} from '@/components/ui/sidebar';
 
 export function SidebarLoading() {
   return (
@@ -30,7 +30,7 @@ export function SidebarLoading() {
         <SidebarGroup>
           <SidebarGroupLabel>Platform</SidebarGroupLabel>
           <SidebarMenu>
-            {[1, 2, 3, 4].map((i) => (
+            {[1, 2, 3, 4].map(i => (
               <SidebarMenuItem key={i}>
                 <SidebarMenuButton>
                   <Skeleton className="h-4 w-4" />
@@ -43,7 +43,7 @@ export function SidebarLoading() {
         <SidebarGroup>
           <SidebarGroupLabel>Projects</SidebarGroupLabel>
           <SidebarMenu>
-            {[1, 2, 3].map((i) => (
+            {[1, 2, 3].map(i => (
               <SidebarMenuItem key={i}>
                 <SidebarMenuButton>
                   <Skeleton className="h-4 w-4" />

@@ -1,31 +1,28 @@
-"use server";
+'use server';
 
-import { auth } from "@/lib/actions/auth/auth";
-import { db } from "@/lib/db";
-import { users, userSettings } from "@/lib/db/schema/auth";
-import { eq } from "drizzle-orm";
+import { auth } from '@/lib/actions/auth/auth';
+import { dbAccess } from '@/lib/db/access';
+import { handleError, logError } from '@/lib/security/error-handling';
 
 export async function getUserData() {
   try {
     const session = await auth();
     if (!session?.user?.id) {
-      throw new Error("Unauthorized");
+      throw new Error('Unauthorized');
     }
 
-    const user = await db
-      .select()
-      .from(users)
-      .where(eq(users.id, session.user.id));
+    const [user] = await dbAccess.users.getById(session.user.id);
+    const [settings] = await dbAccess.settings.getByUserId(session.user.id);
 
-    const settings = await db
-      .select()
-      .from(userSettings)
-      .where(eq(userSettings.userId, session.user.id));
+    // Log the access
+    await dbAccess.logAuditEvent(session.user.id, 'get_user_data', {
+      userId: session.user.id,
+    });
 
     return { user, settings };
   } catch (error) {
-    console.error("[USER_GET]", error);
-    throw error;
+    logError(error, 'Failed to get user data');
+    throw handleError(error);
   }
 }
 
@@ -46,44 +43,40 @@ export async function updateUserProfile(values: {
   try {
     const session = await auth();
     if (!session?.user?.id) {
-      throw new Error("Unauthorized");
+      throw new Error('Unauthorized');
     }
 
-    console.log("Updating user profile:", {
+    // Log the update attempt
+    await dbAccess.logAuditEvent(session.user.id, 'update_profile', {
       userId: session.user.id,
-      profile: values,
+      fields: Object.keys(values),
     });
 
-    await db
-      .update(users)
-      .set({
-        name: values.name,
-        email: values.email,
-        username: values.username,
-        about: values.about,
-        image: values.image,
-        streetAddress: values.streetAddress,
-        city: values.city,
-        state: values.state,
-        postalCode: values.postalCode,
-        country: values.country,
-        taxId: values.taxId,
-        socialMedia: values.socialMedia,
-        updatedAt: new Date(),
-      })
-      .where(eq(users.id, session.user.id));
+    await dbAccess.users.update(session.user.id, {
+      name: values.name,
+      email: values.email,
+      username: values.username,
+      about: values.about,
+      image: values.image,
+      streetAddress: values.streetAddress,
+      city: values.city,
+      state: values.state,
+      postalCode: values.postalCode,
+      country: values.country,
+      taxId: values.taxId,
+      socialMedia: values.socialMedia,
+    });
 
-    console.log("User profile updated successfully");
     return { success: true };
   } catch (error) {
-    console.error("[USER_PROFILE_UPDATE]", error);
-    throw error;
+    logError(error, 'Failed to update user profile');
+    throw handleError(error);
   }
 }
 
 export async function updateUserSettings(values: {
   emailEnabled: boolean;
-  emailFrequency: "daily" | "weekly" | "monthly";
+  emailFrequency: 'daily' | 'weekly' | 'monthly';
   emailAccountUpdates: boolean;
   emailSecurityAlerts: boolean;
   emailMarketing: boolean;
@@ -97,35 +90,20 @@ export async function updateUserSettings(values: {
   try {
     const session = await auth();
     if (!session?.user?.id) {
-      throw new Error("Unauthorized");
+      throw new Error('Unauthorized');
     }
 
-    console.log("Updating user settings:", {
+    // Log the settings update
+    await dbAccess.logAuditEvent(session.user.id, 'update_settings', {
       userId: session.user.id,
-      settings: values,
+      settings: Object.keys(values),
     });
 
-    await db
-      .update(userSettings)
-      .set({
-        emailEnabled: values.emailEnabled,
-        emailFrequency: values.emailFrequency,
-        emailAccountUpdates: values.emailAccountUpdates,
-        emailSecurityAlerts: values.emailSecurityAlerts,
-        emailMarketing: values.emailMarketing,
-        pushEnabled: values.pushEnabled,
-        pushAccountUpdates: values.pushAccountUpdates,
-        pushSecurityAlerts: values.pushSecurityAlerts,
-        pushMarketing: values.pushMarketing,
-        locale: values.locale,
-        language: values.language,
-      })
-      .where(eq(userSettings.userId, session.user.id));
+    await dbAccess.settings.update(session.user.id, values);
 
-    console.log("User settings updated successfully");
     return { success: true };
   } catch (error) {
-    console.error("[USER_SETTINGS_UPDATE]", error);
-    throw error;
+    logError(error, 'Failed to update user settings');
+    throw handleError(error);
   }
 }

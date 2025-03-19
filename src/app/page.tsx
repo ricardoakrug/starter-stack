@@ -1,21 +1,21 @@
-import { Suspense } from "react";
-import { Footer } from "@/components/landing/footer";
-import { Blog } from "@/components/landing/blog";
-import { Features } from "@/components/landing/features";
-import { Hero } from "@/components/landing/hero";
-import { Navbar } from "@/components/landing/navbar";
-import { Skeleton } from "@/components/ui/skeleton";
+import { Suspense } from 'react';
+import { Footer } from '@/components/landing/footer';
+import { Blog } from '@/components/landing/blog';
+import { Features } from '@/components/landing/features';
+import { Hero } from '@/components/landing/hero';
+import { Navbar } from '@/components/landing/navbar';
+import { Skeleton } from '@/components/ui/skeleton';
 
 const posts = [
   {
-    id: "1",
-    title: "Post 1",
-    summary: "This is the content of post 1",
-    label: "Tutorial",
-    author: "John Doe",
-    published: "2021-01-01",
-    url: "https://shadcnblocks.com",
-    image: "https://shadcnblocks.com/images/block/placeholder-dark-1.svg",
+    id: '1',
+    title: 'Post 1',
+    summary: 'This is the content of post 1',
+    label: 'Tutorial',
+    author: 'John Doe',
+    published: '2021-01-01',
+    url: 'https://shadcnblocks.com',
+    image: 'https://shadcnblocks.com/images/block/placeholder-dark-1.svg',
   },
 ];
 
@@ -35,7 +35,7 @@ function LoadingFeatures() {
   return (
     <div className="py-24 px-4">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {[1, 2, 3].map((i) => (
+        {[1, 2, 3].map(i => (
           <div key={i} className="p-6 border rounded-lg">
             <Skeleton className="h-12 w-12 mb-4" />
             <Skeleton className="h-6 w-3/4 mb-2" />
@@ -56,7 +56,7 @@ function LoadingBlog() {
         <Skeleton className="h-4 w-1/2 mx-auto" />
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {[1, 2, 3].map((i) => (
+        {[1, 2, 3].map(i => (
           <div key={i} className="border rounded-lg overflow-hidden">
             <Skeleton className="h-48 w-full" />
             <div className="p-6">

@@ -1,8 +1,8 @@
-import { ArrowDownRight, Star } from "lucide-react";
+import { ArrowDownRight, Star } from 'lucide-react';
 
-import { Avatar, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
+import { Avatar, AvatarImage } from '@/components/ui/avatar';
+import { Button } from '@/components/ui/button';
+import Image from 'next/image';
 
 interface HeroProps {
   heading?: string;
@@ -27,40 +27,40 @@ interface HeroProps {
 }
 
 const Hero = ({
-  heading = "Blocks built with Shadcn & Tailwind",
-  description = "Finely crafted components built with React, Tailwind and Shadcn UI. Developers can copy and paste these blocks directly into their project.",
+  heading = 'Blocks built with Shadcn & Tailwind',
+  description = 'Finely crafted components built with React, Tailwind and Shadcn UI. Developers can copy and paste these blocks directly into their project.',
   buttons = {
     primary: {
-      text: "Sign Up",
-      url: "https://www.shadcnblocks.com",
+      text: 'Sign Up',
+      url: 'https://www.shadcnblocks.com',
     },
     secondary: {
-      text: "Get Started",
-      url: "https://www.shadcnblocks.com",
+      text: 'Get Started',
+      url: 'https://www.shadcnblocks.com',
     },
   },
   reviews = {
     count: 200,
     avatars: [
       {
-        src: "https://www.shadcnblocks.com/images/block/avatar-1.webp",
-        alt: "Avatar 1",
+        src: 'https://www.shadcnblocks.com/images/block/avatar-1.webp',
+        alt: 'Avatar 1',
       },
       {
-        src: "https://www.shadcnblocks.com/images/block/avatar-2.webp",
-        alt: "Avatar 2",
+        src: 'https://www.shadcnblocks.com/images/block/avatar-2.webp',
+        alt: 'Avatar 2',
       },
       {
-        src: "https://www.shadcnblocks.com/images/block/avatar-3.webp",
-        alt: "Avatar 3",
+        src: 'https://www.shadcnblocks.com/images/block/avatar-3.webp',
+        alt: 'Avatar 3',
       },
       {
-        src: "https://www.shadcnblocks.com/images/block/avatar-4.webp",
-        alt: "Avatar 4",
+        src: 'https://www.shadcnblocks.com/images/block/avatar-4.webp',
+        alt: 'Avatar 4',
       },
       {
-        src: "https://www.shadcnblocks.com/images/block/avatar-5.webp",
-        alt: "Avatar 5",
+        src: 'https://www.shadcnblocks.com/images/block/avatar-5.webp',
+        alt: 'Avatar 5',
       },
     ],
   },
@@ -69,12 +69,8 @@ const Hero = ({
     <section>
       <div className="container grid items-center gap-10 lg:grid-cols-2 lg:gap-20 min-h-[80vh]">
         <div className="mx-auto flex flex-col items-center text-center md:ml-auto lg:max-w-3xl lg:items-start lg:text-left">
-          <h1 className="my-6 text-pretty text-4xl font-bold lg:text-6xl xl:text-7xl">
-            {heading}
-          </h1>
-          <p className="text-muted-foreground mb-8 max-w-xl lg:text-xl">
-            {description}
-          </p>
+          <h1 className="my-6 text-pretty text-4xl font-bold lg:text-6xl xl:text-7xl">{heading}</h1>
+          <p className="text-muted-foreground mb-8 max-w-xl lg:text-xl">{description}</p>
           <div className="mb-12 flex w-fit flex-col items-center gap-4 sm:flex-row">
             <span className="inline-flex items-center -space-x-4">
               {reviews.avatars.map((avatar, index) => (
@@ -86,10 +82,7 @@ const Hero = ({
             <div>
               <div className="flex items-center gap-1">
                 {[...Array(5)].map((_, index) => (
-                  <Star
-                    key={index}
-                    className="size-5 fill-yellow-400 text-yellow-400"
-                  />
+                  <Star key={index} className="size-5 fill-yellow-400 text-yellow-400" />
                 ))}
               </div>
               <p className="text-muted-foreground text-left font-medium">

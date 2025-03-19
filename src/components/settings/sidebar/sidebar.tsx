@@ -1,11 +1,7 @@
-import { AppSidebar } from "@/components/settings/sidebar/app-sidebar";
-import { DynamicBreadcrumb } from "@/components/ui/breadcrumb";
-import { Separator } from "@/components/ui/separator";
-import {
-  SidebarInset,
-  SidebarProvider,
-  SidebarTrigger,
-} from "@/components/ui/sidebar";
+import { AppSidebar } from '@/components/settings/sidebar/app-sidebar';
+import { DynamicBreadcrumb } from '@/components/ui/breadcrumb';
+import { Separator } from '@/components/ui/separator';
+import { SidebarInset, SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
 
 export default function Sidebar({ children }: { children: React.ReactNode }) {
   return (
