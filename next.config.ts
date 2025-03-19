@@ -5,6 +5,11 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         hostname: "www.shadcnblocks.com",
+        protocol: "https",
+      },
+      {
+        hostname: "placehold.co",
+        protocol: "https",
       },
     ],
   },
