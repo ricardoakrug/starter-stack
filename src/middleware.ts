@@ -1,19 +1,19 @@
-import { NextResponse } from 'next/server';
+import { NextResponse } from "next/server";
 
 export function middleware() {
   const response = NextResponse.next();
 
   // Security Headers
-  response.headers.set('X-DNS-Prefetch-Control', 'on');
-  response.headers.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
-  response.headers.set('X-Frame-Options', 'SAMEORIGIN');
-  response.headers.set('X-Content-Type-Options', 'nosniff');
-  response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
-  response.headers.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
+  response.headers.set("X-DNS-Prefetch-Control", "on");
+  response.headers.set("Strict-Transport-Security", "max-age=31536000; includeSubDomains");
+  response.headers.set("X-Frame-Options", "SAMEORIGIN");
+  response.headers.set("X-Content-Type-Options", "nosniff");
+  response.headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
+  response.headers.set("Permissions-Policy", "camera=(), microphone=(), geolocation=()");
 
   // Content Security Policy
   response.headers.set(
-    'Content-Security-Policy',
+    "Content-Security-Policy",
     `
       default-src 'self';
       script-src 'self' 'unsafe-inline' 'unsafe-eval';
@@ -23,7 +23,7 @@ export function middleware() {
       connect-src 'self' https://*.resend.com;
       frame-ancestors 'none';
     `
-      .replace(/\s+/g, ' ')
+      .replace(/\s+/g, " ")
       .trim()
   );
 
@@ -39,6 +39,6 @@ export const config = {
      * - _next/image (image optimization files)
      * - favicon.ico (favicon file)
      */
-    '/((?!api|_next/static|_next/image|favicon.ico).*)',
+    "/((?!api|_next/static|_next/image|favicon.ico).*)",
   ],
 };

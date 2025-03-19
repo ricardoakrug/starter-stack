@@ -1,5 +1,5 @@
-import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 
 interface RateLimitConfig {
   limit: number;
@@ -17,9 +17,9 @@ export function rateLimit(config: Partial<RateLimitConfig> = {}) {
   const { limit, windowMs } = { ...defaultConfig, ...config };
   return async function rateLimitMiddleware(request: NextRequest) {
     const ip =
-      request.headers.get('x-forwarded-for')?.split(',')[0] ??
-      request.headers.get('x-real-ip') ??
-      '127.0.0.1';
+      request.headers.get("x-forwarded-for")?.split(",")[0] ??
+      request.headers.get("x-real-ip") ??
+      "127.0.0.1";
     const now = Date.now();
 
     const record = store.get(ip);
@@ -34,7 +34,7 @@ export function rateLimit(config: Partial<RateLimitConfig> = {}) {
     }
 
     if (record.count >= limit) {
-      return new NextResponse('Too Many Requests', { status: 429 });
+      return new NextResponse("Too Many Requests", { status: 429 });
     }
 
     record.count += 1;

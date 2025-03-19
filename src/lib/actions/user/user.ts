@@ -1,27 +1,27 @@
-'use server';
+"use server";
 
-import { auth } from '@/lib/actions/auth/auth';
-import { dbAccess } from '@/lib/db/access';
-import { handleError, logError } from '@/lib/security/error-handling';
+import { auth } from "@/lib/actions/auth/auth";
+import { dbAccess } from "@/lib/db/access";
+import { handleError, logError } from "@/lib/security/error-handling";
 
 export async function getUserData() {
   try {
     const session = await auth();
     if (!session?.user?.id) {
-      throw new Error('Unauthorized');
+      throw new Error("Unauthorized");
     }
 
     const [user] = await dbAccess.users.getById(session.user.id);
     const [settings] = await dbAccess.settings.getByUserId(session.user.id);
 
     // Log the access
-    await dbAccess.logAuditEvent(session.user.id, 'get_user_data', {
+    await dbAccess.logAuditEvent(session.user.id, "get_user_data", {
       userId: session.user.id,
     });
 
     return { user, settings };
   } catch (error) {
-    logError(error, 'Failed to get user data');
+    logError(error, "Failed to get user data");
     throw handleError(error);
   }
 }
@@ -43,11 +43,11 @@ export async function updateUserProfile(values: {
   try {
     const session = await auth();
     if (!session?.user?.id) {
-      throw new Error('Unauthorized');
+      throw new Error("Unauthorized");
     }
 
     // Log the update attempt
-    await dbAccess.logAuditEvent(session.user.id, 'update_profile', {
+    await dbAccess.logAuditEvent(session.user.id, "update_profile", {
       userId: session.user.id,
       fields: Object.keys(values),
     });
@@ -69,14 +69,14 @@ export async function updateUserProfile(values: {
 
     return { success: true };
   } catch (error) {
-    logError(error, 'Failed to update user profile');
+    logError(error, "Failed to update user profile");
     throw handleError(error);
   }
 }
 
 export async function updateUserSettings(values: {
   emailEnabled: boolean;
-  emailFrequency: 'daily' | 'weekly' | 'monthly';
+  emailFrequency: "daily" | "weekly" | "monthly";
   emailAccountUpdates: boolean;
   emailSecurityAlerts: boolean;
   emailMarketing: boolean;
@@ -90,11 +90,11 @@ export async function updateUserSettings(values: {
   try {
     const session = await auth();
     if (!session?.user?.id) {
-      throw new Error('Unauthorized');
+      throw new Error("Unauthorized");
     }
 
     // Log the settings update
-    await dbAccess.logAuditEvent(session.user.id, 'update_settings', {
+    await dbAccess.logAuditEvent(session.user.id, "update_settings", {
       userId: session.user.id,
       settings: Object.keys(values),
     });
@@ -103,7 +103,7 @@ export async function updateUserSettings(values: {
 
     return { success: true };
   } catch (error) {
-    logError(error, 'Failed to update user settings');
+    logError(error, "Failed to update user settings");
     throw handleError(error);
   }
 }

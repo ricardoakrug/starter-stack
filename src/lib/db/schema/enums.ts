@@ -1,6 +1,6 @@
-import { pgEnum } from 'drizzle-orm/pg-core';
+import { pgEnum } from "drizzle-orm/pg-core";
 
-export const emailFrequencyEnum = pgEnum('email_frequency', ['daily', 'weekly', 'monthly']);
+export const emailFrequencyEnum = pgEnum("email_frequency", ["daily", "weekly", "monthly"]);
 
 // Add other enums here as needed
 // Example:

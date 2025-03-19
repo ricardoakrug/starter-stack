@@ -1,4 +1,4 @@
-export type EmailFrequency = 'daily' | 'weekly' | 'monthly';
+export type EmailFrequency = "daily" | "weekly" | "monthly";
 
 // Add other enum types here as needed
 // Example:

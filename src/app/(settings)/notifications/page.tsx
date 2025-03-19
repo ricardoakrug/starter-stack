@@ -1,6 +1,6 @@
-import { auth } from '@/lib/actions/auth/auth';
-import type { User } from '@/lib/types/auth';
-import NotificationsForm from '@/components/settings/profile/notifications-form';
+import { auth } from "@/lib/actions/auth/auth";
+import type { User } from "@/lib/types/auth";
+import NotificationsForm from "@/components/settings/profile/notifications-form";
 
 export default async function NotificationsPage() {
   const session = await auth();

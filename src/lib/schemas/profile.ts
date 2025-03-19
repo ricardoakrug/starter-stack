@@ -1,9 +1,9 @@
-import { z } from 'zod';
+import { z } from "zod";
 
 export const profileFormSchema = z.object({
-  name: z.string().min(2, 'Name must be at least 2 characters'),
-  email: z.string().email('Invalid email address'),
-  username: z.string().min(3, 'Username must be at least 3 characters'),
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Invalid email address"),
+  username: z.string().min(3, "Username must be at least 3 characters"),
   about: z.string().optional(),
   image: z.string().optional(),
   streetAddress: z.string().optional(),
@@ -17,7 +17,7 @@ export const profileFormSchema = z.object({
 
 export const settingsFormSchema = z.object({
   emailEnabled: z.boolean(),
-  emailFrequency: z.enum(['daily', 'weekly', 'monthly']),
+  emailFrequency: z.enum(["daily", "weekly", "monthly"]),
   emailAccountUpdates: z.boolean(),
   emailSecurityAlerts: z.boolean(),
   emailMarketing: z.boolean(),

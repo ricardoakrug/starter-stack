@@ -1,12 +1,12 @@
-import { db, withTransaction } from './index';
-import { eq, sql } from 'drizzle-orm';
-import { users, userSettings } from './schema/auth';
-import { logError } from '@/lib/security/error-handling';
-import type { InferModel } from 'drizzle-orm';
+import { db, withTransaction } from "./index";
+import { eq, sql } from "drizzle-orm";
+import { users, userSettings } from "./schema/auth";
+import { logError } from "@/lib/security/error-handling";
+import type { InferModel } from "drizzle-orm";
 
 // Sanitize input to prevent SQL injection
 function sanitizeInput(input: string): string {
-  return input.replace(/[^a-zA-Z0-9_-]/g, '');
+  return input.replace(/[^a-zA-Z0-9_-]/g, "");
 }
 
 type User = InferModel<typeof users>;
@@ -84,10 +84,10 @@ export const dbAccess = {
   async checkHealth() {
     try {
       await db.execute(sql`SELECT 1`);
-      return { status: 'healthy' };
+      return { status: "healthy" };
     } catch (error) {
-      logError(error, 'Database health check failed');
-      return { status: 'unhealthy', error: 'Database connection failed' };
+      logError(error, "Database health check failed");
+      return { status: "unhealthy", error: "Database connection failed" };
     }
   },
 };

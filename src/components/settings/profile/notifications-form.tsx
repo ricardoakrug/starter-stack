@@ -1,26 +1,26 @@
-'use client';
+"use client";
 
-import { Button } from '@/components/ui/button';
-import { Switch } from '@/components/ui/switch';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { Form, FormControl, FormField, FormItem, FormLabel } from '@/components/ui/form';
-import { settingsFormSchema } from '@/lib/schemas/profile';
-import { SettingsFormValues } from '@/lib/types/profile';
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { getUserData, updateUserSettings } from '@/lib/actions/user/user';
-import { useEffect } from 'react';
-import { EmailFrequency } from '@/lib/types/enums';
-import { toast } from 'sonner';
-import { Separator } from '@/components/ui/separator';
-import { Loading } from '@/components/ui/loading';
-import { Skeleton } from '@/components/ui/skeleton';
+import { Button } from "@/components/ui/button";
+import { Switch } from "@/components/ui/switch";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Form, FormControl, FormField, FormItem, FormLabel } from "@/components/ui/form";
+import { settingsFormSchema } from "@/lib/schemas/profile";
+import { SettingsFormValues } from "@/lib/types/profile";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { getUserData, updateUserSettings } from "@/lib/actions/user/user";
+import { useEffect } from "react";
+import { EmailFrequency } from "@/lib/types/enums";
+import { toast } from "sonner";
+import { Separator } from "@/components/ui/separator";
+import { Loading } from "@/components/ui/loading";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default function NotificationsForm() {
   const queryClient = useQueryClient();
 
   const { data, isLoading, error } = useQuery({
-    queryKey: ['userData'],
+    queryKey: ["userData"],
     queryFn: getUserData,
     retry: 1,
   });
@@ -30,17 +30,17 @@ export default function NotificationsForm() {
       return updateUserSettings(values);
     },
     onSuccess: async () => {
-      await queryClient.invalidateQueries({ queryKey: ['userData'] });
+      await queryClient.invalidateQueries({ queryKey: ["userData"] });
 
-      toast.success('Notification settings updated successfully', {
-        description: 'Your changes have been saved.',
+      toast.success("Notification settings updated successfully", {
+        description: "Your changes have been saved.",
       });
     },
     onError: error => {
-      toast.error('Failed to update notification settings', {
-        description: 'Please try again or contact support if the problem persists.',
+      toast.error("Failed to update notification settings", {
+        description: "Please try again or contact support if the problem persists.",
       });
-      console.error('[NOTIFICATIONS_UPDATE]', error);
+      console.error("[NOTIFICATIONS_UPDATE]", error);
     },
   });
 
@@ -48,7 +48,7 @@ export default function NotificationsForm() {
     resolver: zodResolver(settingsFormSchema),
     defaultValues: {
       emailEnabled: true,
-      emailFrequency: 'daily',
+      emailFrequency: "daily",
       emailAccountUpdates: true,
       emailSecurityAlerts: true,
       emailMarketing: true,
@@ -56,21 +56,21 @@ export default function NotificationsForm() {
       pushAccountUpdates: true,
       pushSecurityAlerts: true,
       pushMarketing: true,
-      locale: 'en',
-      language: 'en',
+      locale: "en",
+      language: "en",
     },
   });
 
   // Watch the main switches for reactive updates
-  const emailEnabled = form.watch('emailEnabled');
-  const pushEnabled = form.watch('pushEnabled');
+  const emailEnabled = form.watch("emailEnabled");
+  const pushEnabled = form.watch("pushEnabled");
 
   // Update form values when data is loaded
   useEffect(() => {
     if (data && !form.formState.isDirty) {
       form.reset({
         emailEnabled: data.settings?.emailEnabled ?? true,
-        emailFrequency: (data.settings?.emailFrequency as EmailFrequency) || 'daily',
+        emailFrequency: (data.settings?.emailFrequency as EmailFrequency) || "daily",
         emailAccountUpdates: data.settings?.emailAccountUpdates ?? true,
         emailSecurityAlerts: data.settings?.emailSecurityAlerts ?? true,
         emailMarketing: data.settings?.emailMarketing ?? true,
@@ -78,8 +78,8 @@ export default function NotificationsForm() {
         pushAccountUpdates: data.settings?.pushAccountUpdates ?? true,
         pushSecurityAlerts: data.settings?.pushSecurityAlerts ?? true,
         pushMarketing: data.settings?.pushMarketing ?? true,
-        locale: data.settings?.locale || 'en',
-        language: data.settings?.language || 'en',
+        locale: data.settings?.locale || "en",
+        language: data.settings?.language || "en",
       });
     }
   }, [data, form]);
@@ -88,7 +88,7 @@ export default function NotificationsForm() {
     try {
       await updateMutation.mutateAsync(values);
     } catch (error) {
-      console.error('Form submission error:', error);
+      console.error("Form submission error:", error);
       // Error is already handled by the mutation
     }
   };
@@ -130,8 +130,8 @@ export default function NotificationsForm() {
             variant="outline"
             className="mt-4"
             onClick={() => {
-              queryClient.invalidateQueries({ queryKey: ['userData'] });
-              toast.info('Refreshing notification settings...');
+              queryClient.invalidateQueries({ queryKey: ["userData"] });
+              toast.info("Refreshing notification settings...");
             }}
           >
             Try again
@@ -175,9 +175,9 @@ export default function NotificationsForm() {
                             field.onChange(checked);
                             // If email is disabled, disable all email-related switches
                             if (!checked) {
-                              form.setValue('emailAccountUpdates', false);
-                              form.setValue('emailSecurityAlerts', false);
-                              form.setValue('emailMarketing', false);
+                              form.setValue("emailAccountUpdates", false);
+                              form.setValue("emailSecurityAlerts", false);
+                              form.setValue("emailMarketing", false);
                             }
                           }}
                         />
@@ -280,9 +280,9 @@ export default function NotificationsForm() {
                             field.onChange(checked);
                             // If push is disabled, disable all push-related switches
                             if (!checked) {
-                              form.setValue('pushAccountUpdates', false);
-                              form.setValue('pushSecurityAlerts', false);
-                              form.setValue('pushMarketing', false);
+                              form.setValue("pushAccountUpdates", false);
+                              form.setValue("pushSecurityAlerts", false);
+                              form.setValue("pushMarketing", false);
                             }
                           }}
                         />
@@ -368,7 +368,7 @@ export default function NotificationsForm() {
             Cancel
           </Button>
           <Button type="submit" disabled={updateMutation.isPending}>
-            {updateMutation.isPending ? 'Saving...' : 'Save'}
+            {updateMutation.isPending ? "Saving..." : "Save"}
           </Button>
         </div>
       </form>

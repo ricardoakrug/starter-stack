@@ -1,16 +1,16 @@
-import { drizzle } from 'drizzle-orm/postgres-js';
-import postgres from 'postgres';
-import * as schema from '@/lib/db/schema';
-import { handleError, logError } from '@/lib/security/error-handling';
+import { drizzle } from "drizzle-orm/postgres-js";
+import postgres from "postgres";
+import * as schema from "@/lib/db/schema";
+import { handleError, logError } from "@/lib/security/error-handling";
 
 if (!process.env.DATABASE_URL) {
-  throw new Error('DATABASE_URL is not set');
+  throw new Error("DATABASE_URL is not set");
 }
 
 // Parse the connection string to ensure it's valid
 const connectionString = process.env.DATABASE_URL;
-if (!connectionString.startsWith('postgres://') && !connectionString.startsWith('postgresql://')) {
-  throw new Error('Invalid database URL format');
+if (!connectionString.startsWith("postgres://") && !connectionString.startsWith("postgresql://")) {
+  throw new Error("Invalid database URL format");
 }
 
 // Configure connection pool with security settings
@@ -37,7 +37,7 @@ export async function withTransaction<T>(operation: () => Promise<T>): Promise<T
   try {
     return await operation();
   } catch (error) {
-    logError(error, 'Database operation failed');
+    logError(error, "Database operation failed");
     throw handleError(error);
   }
 }
@@ -48,7 +48,7 @@ export async function checkDatabaseConnection(): Promise<boolean> {
     await client`SELECT 1`;
     return true;
   } catch (error) {
-    logError(error, 'Database connection check failed');
+    logError(error, "Database connection check failed");
     return false;
   }
 }

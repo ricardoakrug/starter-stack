@@ -1,6 +1,6 @@
-import { auth } from '@/lib/actions/auth/auth';
-import type { User } from '@/lib/types/auth';
-import ProfileForm from '@/components/settings/profile/profile-form';
+import { auth } from "@/lib/actions/auth/auth";
+import type { User } from "@/lib/types/auth";
+import ProfileForm from "@/components/settings/profile/profile-form";
 
 export default async function ProfilePage() {
   const session = await auth();

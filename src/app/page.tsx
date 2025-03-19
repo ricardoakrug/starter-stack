@@ -1,21 +1,21 @@
-import { Suspense } from 'react';
-import { Footer } from '@/components/landing/footer';
-import { Blog } from '@/components/landing/blog';
-import { Features } from '@/components/landing/features';
-import { Hero } from '@/components/landing/hero';
-import { Navbar } from '@/components/landing/navbar';
-import { Skeleton } from '@/components/ui/skeleton';
+import { Suspense } from "react";
+import { Footer } from "@/components/landing/footer";
+import { Blog } from "@/components/landing/blog";
+import { Features } from "@/components/landing/features";
+import { Hero } from "@/components/landing/hero";
+import { Navbar } from "@/components/landing/navbar";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const posts = [
   {
-    id: '1',
-    title: 'Post 1',
-    summary: 'This is the content of post 1',
-    label: 'Tutorial',
-    author: 'John Doe',
-    published: '2021-01-01',
-    url: 'https://shadcnblocks.com',
-    image: 'https://shadcnblocks.com/images/block/placeholder-dark-1.svg',
+    id: "1",
+    title: "Post 1",
+    summary: "This is the content of post 1",
+    label: "Tutorial",
+    author: "John Doe",
+    published: "2021-01-01",
+    url: "https://shadcnblocks.com",
+    image: "https://shadcnblocks.com/images/block/placeholder-dark-1.svg",
   },
 ];
 
