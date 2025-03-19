@@ -1,0 +1,42 @@
+{
+  "login": {
+    "title": "Welcome to Acme Inc.",
+    "subtitle": "Don't have an account?",
+    "signupLink": "Sign up",
+    "email": {
+      "label": "Email",
+      "placeholder": "m@example.com"
+    },
+    "submit": "Login",
+    "terms": {
+      "prefix": "By clicking continue, you agree to our",
+      "termsLink": "Terms of Service",
+      "and": "and",
+      "privacyLink": "Privacy Policy"
+    }
+  },
+  "signup": {
+    "title": "Create an account",
+    "subtitle": "Already have an account?",
+    "loginLink": "Login",
+    "email": {
+      "label": "Email",
+      "placeholder": "m@example.com"
+    },
+    "password": {
+      "label": "Password",
+      "placeholder": "••••••••"
+    },
+    "confirmPassword": {
+      "label": "Confirm Password",
+      "placeholder": "••••••••"
+    },
+    "submit": "Create Account",
+    "terms": {
+      "prefix": "By clicking continue, you agree to our",
+      "termsLink": "Terms of Service",
+      "and": "and",
+      "privacyLink": "Privacy Policy"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "description": "Construyendo el futuro del desarrollo web con herramientas y frameworks modernos.",
+  "links": {
+    "product": {
+      "title": "Producto",
+      "features": "Características",
+      "pricing": "Precios",
+      "changelog": "Registro de Cambios",
+      "roadmap": "Hoja de Ruta"
+    },
+    "company": {
+      "title": "Empresa",
+      "about": "Sobre Nosotros",
+      "blog": "Blog",
+      "careers": "Carreras",
+      "contact": "Contacto"
+    },
+    "resources": {
+      "title": "Recursos",
+      "documentation": "Documentación",
+      "guides": "Guías",
+      "support": "Soporte",
+      "api": "API"
+    },
+    "legal": {
+      "title": "Legal",
+      "privacy": "Política de Privacidad",
+      "terms": "Términos de Servicio",
+      "cookies": "Política de Cookies",
+      "security": "Seguridad"
+    }
+  },
+  "social": {
+    "title": "Síguenos",
+    "twitter": "Twitter",
+    "github": "GitHub",
+    "linkedin": "LinkedIn"
+  },
+  "copyright": "© 2024 Tu Empresa. Todos los derechos reservados."
+}

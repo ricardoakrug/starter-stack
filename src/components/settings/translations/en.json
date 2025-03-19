@@ -1,0 +1,160 @@
+{
+  "sidebar": {
+    "title": "Settings",
+    "navigation": {
+      "profile": "Profile",
+      "account": "Account",
+      "notifications": "Notifications",
+      "security": "Security",
+      "billing": "Billing",
+      "integrations": "Integrations",
+      "preferences": "Preferences"
+    }
+  },
+  "profile": {
+    "title": "Profile Settings",
+    "description": "Manage your personal information and how others see you on the platform.",
+    "form": {
+      "avatar": {
+        "label": "Profile Picture",
+        "description": "Upload a new profile picture",
+        "button": "Change Picture"
+      },
+      "name": {
+        "label": "Full Name",
+        "placeholder": "Enter your full name"
+      },
+      "bio": {
+        "label": "Bio",
+        "placeholder": "Tell us about yourself",
+        "description": "Brief description for your profile"
+      },
+      "location": {
+        "label": "Location",
+        "placeholder": "Enter your location"
+      },
+      "website": {
+        "label": "Website",
+        "placeholder": "https://your-website.com"
+      },
+      "submit": "Save Changes"
+    }
+  },
+  "account": {
+    "title": "Account Settings",
+    "description": "Manage your account settings and set your preferences.",
+    "form": {
+      "email": {
+        "label": "Email Address",
+        "description": "Your email address is used for notifications and sign-in.",
+        "button": "Change Email"
+      },
+      "language": {
+        "label": "Language",
+        "description": "Select your preferred language"
+      },
+      "timezone": {
+        "label": "Timezone",
+        "description": "Select your timezone"
+      },
+      "submit": "Save Changes"
+    }
+  },
+  "notifications": {
+    "title": "Notification Settings",
+    "description": "Configure how you receive notifications.",
+    "form": {
+      "email": {
+        "label": "Email Notifications",
+        "description": "Receive notifications via email"
+      },
+      "push": {
+        "label": "Push Notifications",
+        "description": "Receive push notifications in your browser"
+      },
+      "marketing": {
+        "label": "Marketing Emails",
+        "description": "Receive emails about new features and updates"
+      },
+      "submit": "Save Preferences"
+    }
+  },
+  "security": {
+    "title": "Security Settings",
+    "description": "Manage your account security and authentication settings.",
+    "form": {
+      "password": {
+        "label": "Password",
+        "description": "Change your password",
+        "button": "Change Password"
+      },
+      "twoFactor": {
+        "label": "Two-Factor Authentication",
+        "description": "Add an extra layer of security to your account",
+        "button": "Enable 2FA"
+      },
+      "sessions": {
+        "label": "Active Sessions",
+        "description": "Manage your active sessions and devices",
+        "button": "View Sessions"
+      },
+      "submit": "Save Changes"
+    }
+  },
+  "billing": {
+    "title": "Billing Settings",
+    "description": "Manage your billing information and subscription.",
+    "form": {
+      "plan": {
+        "label": "Current Plan",
+        "description": "Your current subscription plan"
+      },
+      "payment": {
+        "label": "Payment Method",
+        "description": "Manage your payment methods",
+        "button": "Update Payment"
+      },
+      "invoices": {
+        "label": "Invoices",
+        "description": "View and download your invoices",
+        "button": "View Invoices"
+      },
+      "submit": "Save Changes"
+    }
+  },
+  "integrations": {
+    "title": "Integrations",
+    "description": "Connect your account with other services.",
+    "form": {
+      "github": {
+        "label": "GitHub",
+        "description": "Connect your GitHub account"
+      },
+      "google": {
+        "label": "Google",
+        "description": "Connect your Google account"
+      },
+      "submit": "Save Changes"
+    }
+  },
+  "preferences": {
+    "title": "Preferences",
+    "description": "Customize your experience on the platform.",
+    "form": {
+      "theme": {
+        "label": "Theme",
+        "description": "Choose your preferred theme",
+        "options": {
+          "light": "Light",
+          "dark": "Dark",
+          "system": "System"
+        }
+      },
+      "layout": {
+        "label": "Layout",
+        "description": "Choose your preferred layout"
+      },
+      "submit": "Save Preferences"
+    }
+  }
+}

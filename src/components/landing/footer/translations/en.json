@@ -1,0 +1,40 @@
+{
+  "description": "Building the future of web development with modern tools and frameworks.",
+  "links": {
+    "product": {
+      "title": "Product",
+      "features": "Features",
+      "pricing": "Pricing",
+      "changelog": "Changelog",
+      "roadmap": "Roadmap"
+    },
+    "company": {
+      "title": "Company",
+      "about": "About",
+      "blog": "Blog",
+      "careers": "Careers",
+      "contact": "Contact"
+    },
+    "resources": {
+      "title": "Resources",
+      "documentation": "Documentation",
+      "guides": "Guides",
+      "support": "Support",
+      "api": "API"
+    },
+    "legal": {
+      "title": "Legal",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "cookies": "Cookie Policy",
+      "security": "Security"
+    }
+  },
+  "social": {
+    "title": "Follow us",
+    "twitter": "Twitter",
+    "github": "GitHub",
+    "linkedin": "LinkedIn"
+  },
+  "copyright": "© 2024 Your Company. All rights reserved."
+}

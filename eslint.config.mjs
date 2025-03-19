@@ -1,6 +1,7 @@
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import { FlatCompat } from "@eslint/eslintrc";
+import prettierPlugin from "eslint-plugin-prettier";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -11,15 +12,15 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
+  ...compat.extends("plugin:prettier/recommended"),
   {
     files: ["**/*.{js,jsx,ts,tsx}"],
     plugins: {
-      prettier: "eslint-plugin-prettier",
+      prettier: prettierPlugin,
     },
     rules: {
       "prettier/prettier": "error",
     },
-    extends: ["plugin:prettier/recommended"],
   },
 ];
 

@@ -1,4 +1,5 @@
 import { ArrowDownRight, Star } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -27,18 +28,9 @@ interface HeroProps {
 }
 
 const Hero = ({
-  heading = "Blocks built with Shadcn & Tailwind",
-  description = "Finely crafted components built with React, Tailwind and Shadcn UI. Developers can copy and paste these blocks directly into their project.",
-  buttons = {
-    primary: {
-      text: "Sign Up",
-      url: "https://www.shadcnblocks.com",
-    },
-    secondary: {
-      text: "Get Started",
-      url: "https://www.shadcnblocks.com",
-    },
-  },
+  heading,
+  description,
+  buttons,
   reviews = {
     count: 200,
     avatars: [
@@ -65,12 +57,29 @@ const Hero = ({
     ],
   },
 }: HeroProps) => {
+  const t = useTranslations("hero");
+
+  const defaultButtons = {
+    primary: {
+      text: t("primaryButton"),
+      url: "https://www.shadcnblocks.com",
+    },
+    secondary: {
+      text: t("secondaryButton"),
+      url: "https://www.shadcnblocks.com",
+    },
+  };
+
   return (
     <section>
       <div className="container grid items-center gap-10 lg:grid-cols-2 lg:gap-20 min-h-[80vh]">
         <div className="mx-auto flex flex-col items-center text-center md:ml-auto lg:max-w-3xl lg:items-start lg:text-left">
-          <h1 className="my-6 text-pretty text-4xl font-bold lg:text-6xl xl:text-7xl">{heading}</h1>
-          <p className="text-muted-foreground mb-8 max-w-xl lg:text-xl">{description}</p>
+          <h1 className="my-6 text-pretty text-4xl font-bold lg:text-6xl xl:text-7xl">
+            {heading || t("heading")}
+          </h1>
+          <p className="text-muted-foreground mb-8 max-w-xl lg:text-xl">
+            {description || t("description")}
+          </p>
           <div className="mb-12 flex w-fit flex-col items-center gap-4 sm:flex-row">
             <span className="inline-flex items-center -space-x-4">
               {reviews.avatars.map((avatar, index) => (
@@ -86,20 +95,22 @@ const Hero = ({
                 ))}
               </div>
               <p className="text-muted-foreground text-left font-medium">
-                from {reviews.count}+ reviews
+                {t("reviews.from")} {reviews.count}+ {t("reviews.reviews")}
               </p>
             </div>
           </div>
           <div className="flex w-full flex-col justify-center gap-2 sm:flex-row lg:justify-start">
-            {buttons.primary && (
+            {(buttons?.primary || defaultButtons.primary) && (
               <Button asChild className="w-full sm:w-auto">
-                <a href={buttons.primary.url}>{buttons.primary.text}</a>
+                <a href={(buttons?.primary || defaultButtons.primary).url}>
+                  {(buttons?.primary || defaultButtons.primary).text}
+                </a>
               </Button>
             )}
-            {buttons.secondary && (
+            {(buttons?.secondary || defaultButtons.secondary) && (
               <Button asChild variant="outline" className="w-full sm:w-auto">
-                <a href={buttons.secondary.url}>
-                  {buttons.secondary.text}
+                <a href={(buttons?.secondary || defaultButtons.secondary).url}>
+                  {(buttons?.secondary || defaultButtons.secondary).text}
                   <ArrowDownRight className="ml-2 size-4" />
                 </a>
               </Button>

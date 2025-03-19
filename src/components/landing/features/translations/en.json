@@ -1,0 +1,28 @@
+{
+  "badge": "shadcnblocks.com",
+  "heading": "A Collection of Components Built With Shadcn & Tailwind",
+  "description": "Join us to build flawless web solutions.",
+  "tabs": {
+    "boostRevenue": {
+      "label": "Boost Revenue",
+      "badge": "Modern Tactics",
+      "title": "Make your site a true standout.",
+      "description": "Discover new web trends that help you craft sleek, highly functional sites that drive traffic and convert leads into customers.",
+      "buttonText": "See Plans"
+    },
+    "higherEngagement": {
+      "label": "Higher Engagement",
+      "badge": "Expert Features",
+      "title": "Boost your site with top-tier design.",
+      "description": "Use stellar design to easily engage users and strengthen their loyalty. Create a seamless experience that keeps them coming back for more.",
+      "buttonText": "See Tools"
+    },
+    "stunningLayouts": {
+      "label": "Stunning Layouts",
+      "badge": "Elite Solutions",
+      "title": "Build an advanced web experience.",
+      "description": "Lift your brand with modern tech that grabs attention and drives action. Create a digital experience that stands out from the crowd.",
+      "buttonText": "See Options"
+    }
+  }
+}

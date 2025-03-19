@@ -1,5 +1,6 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@radix-ui/react-tabs";
 import { Layout, Pointer, Zap } from "lucide-react";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -27,21 +28,19 @@ interface FeaturesProps {
   tabs?: Tab[];
 }
 
-const Features = ({
-  badge = "shadcnblocks.com",
-  heading = "A Collection of Components Built With Shadcn & Tailwind",
-  description = "Join us to build flawless web solutions.",
-  tabs = [
+const Features = ({ badge, heading, description, tabs }: FeaturesProps) => {
+  const t = useTranslations("features");
+
+  const defaultTabs = [
     {
       value: "tab-1",
       icon: <Zap className="h-auto w-4 shrink-0" />,
-      label: "Boost Revenue",
+      label: t("tabs.boostRevenue.label"),
       content: {
-        badge: "Modern Tactics",
-        title: "Make your site a true standout.",
-        description:
-          "Discover new web trends that help you craft sleek, highly functional sites that drive traffic and convert leads into customers.",
-        buttonText: "See Plans",
+        badge: t("tabs.boostRevenue.badge"),
+        title: t("tabs.boostRevenue.title"),
+        description: t("tabs.boostRevenue.description"),
+        buttonText: t("tabs.boostRevenue.buttonText"),
         imageSrc: "https://shadcnblocks.com/images/block/placeholder-dark-1.svg",
         imageAlt: "placeholder",
       },
@@ -49,13 +48,12 @@ const Features = ({
     {
       value: "tab-2",
       icon: <Pointer className="h-auto w-4 shrink-0" />,
-      label: "Higher Engagement",
+      label: t("tabs.higherEngagement.label"),
       content: {
-        badge: "Expert Features",
-        title: "Boost your site with top-tier design.",
-        description:
-          "Use stellar design to easily engage users and strengthen their loyalty. Create a seamless experience that keeps them coming back for more.",
-        buttonText: "See Tools",
+        badge: t("tabs.higherEngagement.badge"),
+        title: t("tabs.higherEngagement.title"),
+        description: t("tabs.higherEngagement.description"),
+        buttonText: t("tabs.higherEngagement.buttonText"),
         imageSrc: "https://shadcnblocks.com/images/block/placeholder-dark-2.svg",
         imageAlt: "placeholder",
       },
@@ -63,30 +61,31 @@ const Features = ({
     {
       value: "tab-3",
       icon: <Layout className="h-auto w-4 shrink-0" />,
-      label: "Stunning Layouts",
+      label: t("tabs.stunningLayouts.label"),
       content: {
-        badge: "Elite Solutions",
-        title: "Build an advanced web experience.",
-        description:
-          "Lift your brand with modern tech that grabs attention and drives action. Create a digital experience that stands out from the crowd.",
-        buttonText: "See Options",
+        badge: t("tabs.stunningLayouts.badge"),
+        title: t("tabs.stunningLayouts.title"),
+        description: t("tabs.stunningLayouts.description"),
+        buttonText: t("tabs.stunningLayouts.buttonText"),
         imageSrc: "https://shadcnblocks.com/images/block/placeholder-dark-3.svg",
         imageAlt: "placeholder",
       },
     },
-  ],
-}: FeaturesProps) => {
+  ];
+
   return (
     <section className="py-12">
       <div className="container mx-auto">
         <div className="flex flex-col items-center gap-4 text-center">
-          <Badge variant="outline">{badge}</Badge>
-          <h1 className="max-w-2xl text-3xl font-semibold md:text-4xl">{heading}</h1>
-          <p className="text-muted-foreground">{description}</p>
+          <Badge variant="outline">{badge || t("badge")}</Badge>
+          <h1 className="max-w-2xl text-3xl font-semibold md:text-4xl">
+            {heading || t("heading")}
+          </h1>
+          <p className="text-muted-foreground">{description || t("description")}</p>
         </div>
-        <Tabs defaultValue={tabs[0].value} className="mt-8">
+        <Tabs defaultValue={defaultTabs[0].value} className="mt-8">
           <TabsList className="container flex flex-col items-center justify-center gap-4 sm:flex-row md:gap-10">
-            {tabs.map(tab => (
+            {(tabs || defaultTabs).map(tab => (
               <TabsTrigger
                 key={tab.value}
                 value={tab.value}
@@ -97,7 +96,7 @@ const Features = ({
             ))}
           </TabsList>
           <div className="mx-auto mt-8 max-w-screen-xl rounded-2xl bg-muted/70 p-6 lg:p-16">
-            {tabs.map(tab => (
+            {(tabs || defaultTabs).map(tab => (
               <TabsContent
                 key={tab.value}
                 value={tab.value}

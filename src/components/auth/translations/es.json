@@ -1,0 +1,42 @@
+{
+  "login": {
+    "title": "Bienvenido a Acme Inc.",
+    "subtitle": "¿No tienes una cuenta?",
+    "signupLink": "Registrarse",
+    "email": {
+      "label": "Correo electrónico",
+      "placeholder": "m@ejemplo.com"
+    },
+    "submit": "Iniciar sesión",
+    "terms": {
+      "prefix": "Al hacer clic en continuar, aceptas nuestros",
+      "termsLink": "Términos de Servicio",
+      "and": "y",
+      "privacyLink": "Política de Privacidad"
+    }
+  },
+  "signup": {
+    "title": "Crear una cuenta",
+    "subtitle": "¿Ya tienes una cuenta?",
+    "loginLink": "Iniciar sesión",
+    "email": {
+      "label": "Correo electrónico",
+      "placeholder": "m@ejemplo.com"
+    },
+    "password": {
+      "label": "Contraseña",
+      "placeholder": "••••••••"
+    },
+    "confirmPassword": {
+      "label": "Confirmar Contraseña",
+      "placeholder": "••••••••"
+    },
+    "submit": "Crear Cuenta",
+    "terms": {
+      "prefix": "Al hacer clic en continuar, aceptas nuestros",
+      "termsLink": "Términos de Servicio",
+      "and": "y",
+      "privacyLink": "Política de Privacidad"
+    }
+  }
+}

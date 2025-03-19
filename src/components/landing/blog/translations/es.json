@@ -1,0 +1,26 @@
+{
+  "badge": "Blog",
+  "heading": "Últimos Artículos",
+  "description": "Mantente al día con nuestras últimas noticias y actualizaciones.",
+  "readMore": "Leer Más",
+  "articles": {
+    "article1": {
+      "title": "Comenzando con Next.js",
+      "description": "Aprende cómo construir aplicaciones web modernas con Next.js y React.",
+      "author": "John Doe",
+      "date": "15 de marzo, 2024"
+    },
+    "article2": {
+      "title": "El Poder de Tailwind CSS",
+      "description": "Descubre cómo Tailwind CSS puede ayudarte a construir interfaces de usuario hermosas más rápido.",
+      "author": "Jane Smith",
+      "date": "10 de marzo, 2024"
+    },
+    "article3": {
+      "title": "Construyendo Componentes Accesibles",
+      "description": "Aprende las mejores prácticas para crear componentes React accesibles.",
+      "author": "Mike Johnson",
+      "date": "5 de marzo, 2024"
+    }
+  }
+}

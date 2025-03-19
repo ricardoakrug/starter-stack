@@ -1,0 +1,160 @@
+{
+  "sidebar": {
+    "title": "Configuración",
+    "navigation": {
+      "profile": "Perfil",
+      "account": "Cuenta",
+      "notifications": "Notificaciones",
+      "security": "Seguridad",
+      "billing": "Facturación",
+      "integrations": "Integraciones",
+      "preferences": "Preferencias"
+    }
+  },
+  "profile": {
+    "title": "Configuración de Perfil",
+    "description": "Gestiona tu información personal y cómo otros te ven en la plataforma.",
+    "form": {
+      "avatar": {
+        "label": "Foto de Perfil",
+        "description": "Subir una nueva foto de perfil",
+        "button": "Cambiar Foto"
+      },
+      "name": {
+        "label": "Nombre Completo",
+        "placeholder": "Ingresa tu nombre completo"
+      },
+      "bio": {
+        "label": "Biografía",
+        "placeholder": "Cuéntanos sobre ti",
+        "description": "Breve descripción para tu perfil"
+      },
+      "location": {
+        "label": "Ubicación",
+        "placeholder": "Ingresa tu ubicación"
+      },
+      "website": {
+        "label": "Sitio Web",
+        "placeholder": "https://tu-sitio-web.com"
+      },
+      "submit": "Guardar Cambios"
+    }
+  },
+  "account": {
+    "title": "Configuración de Cuenta",
+    "description": "Gestiona la configuración de tu cuenta y establece tus preferencias.",
+    "form": {
+      "email": {
+        "label": "Correo Electrónico",
+        "description": "Tu correo electrónico se usa para notificaciones e inicio de sesión.",
+        "button": "Cambiar Correo"
+      },
+      "language": {
+        "label": "Idioma",
+        "description": "Selecciona tu idioma preferido"
+      },
+      "timezone": {
+        "label": "Zona Horaria",
+        "description": "Selecciona tu zona horaria"
+      },
+      "submit": "Guardar Cambios"
+    }
+  },
+  "notifications": {
+    "title": "Configuración de Notificaciones",
+    "description": "Configura cómo recibes las notificaciones.",
+    "form": {
+      "email": {
+        "label": "Notificaciones por Correo",
+        "description": "Recibir notificaciones por correo electrónico"
+      },
+      "push": {
+        "label": "Notificaciones Push",
+        "description": "Recibir notificaciones push en tu navegador"
+      },
+      "marketing": {
+        "label": "Correos de Marketing",
+        "description": "Recibir correos sobre nuevas características y actualizaciones"
+      },
+      "submit": "Guardar Preferencias"
+    }
+  },
+  "security": {
+    "title": "Configuración de Seguridad",
+    "description": "Gestiona la seguridad de tu cuenta y la configuración de autenticación.",
+    "form": {
+      "password": {
+        "label": "Contraseña",
+        "description": "Cambiar tu contraseña",
+        "button": "Cambiar Contraseña"
+      },
+      "twoFactor": {
+        "label": "Autenticación de Dos Factores",
+        "description": "Añade una capa extra de seguridad a tu cuenta",
+        "button": "Activar 2FA"
+      },
+      "sessions": {
+        "label": "Sesiones Activas",
+        "description": "Gestiona tus sesiones y dispositivos activos",
+        "button": "Ver Sesiones"
+      },
+      "submit": "Guardar Cambios"
+    }
+  },
+  "billing": {
+    "title": "Configuración de Facturación",
+    "description": "Gestiona tu información de facturación y suscripción.",
+    "form": {
+      "plan": {
+        "label": "Plan Actual",
+        "description": "Tu plan de suscripción actual"
+      },
+      "payment": {
+        "label": "Método de Pago",
+        "description": "Gestiona tus métodos de pago",
+        "button": "Actualizar Pago"
+      },
+      "invoices": {
+        "label": "Facturas",
+        "description": "Ver y descargar tus facturas",
+        "button": "Ver Facturas"
+      },
+      "submit": "Guardar Cambios"
+    }
+  },
+  "integrations": {
+    "title": "Integraciones",
+    "description": "Conecta tu cuenta con otros servicios.",
+    "form": {
+      "github": {
+        "label": "GitHub",
+        "description": "Conectar tu cuenta de GitHub"
+      },
+      "google": {
+        "label": "Google",
+        "description": "Conectar tu cuenta de Google"
+      },
+      "submit": "Guardar Cambios"
+    }
+  },
+  "preferences": {
+    "title": "Preferencias",
+    "description": "Personaliza tu experiencia en la plataforma.",
+    "form": {
+      "theme": {
+        "label": "Tema",
+        "description": "Elige tu tema preferido",
+        "options": {
+          "light": "Claro",
+          "dark": "Oscuro",
+          "system": "Sistema"
+        }
+      },
+      "layout": {
+        "label": "Diseño",
+        "description": "Elige tu diseño preferido"
+      },
+      "submit": "Guardar Preferencias"
+    }
+  }
+}

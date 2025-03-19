@@ -1,0 +1,28 @@
+{
+  "badge": "shadcnblocks.com",
+  "heading": "Una Colección de Componentes Construidos con Shadcn & Tailwind",
+  "description": "Únete a nosotros para construir soluciones web perfectas.",
+  "tabs": {
+    "boostRevenue": {
+      "label": "Impulsa Ingresos",
+      "badge": "Tácticas Modernas",
+      "title": "Haz que tu sitio destaque realmente.",
+      "description": "Descubre nuevas tendencias web que te ayudan a crear sitios elegantes y altamente funcionales que atraen tráfico y convierten leads en clientes.",
+      "buttonText": "Ver Planes"
+    },
+    "higherEngagement": {
+      "label": "Mayor Participación",
+      "badge": "Características Expertas",
+      "title": "Impulsa tu sitio con diseño de primera clase.",
+      "description": "Utiliza un diseño estelar para involucrar fácilmente a los usuarios y fortalecer su lealtad. Crea una experiencia fluida que los mantenga regresando por más.",
+      "buttonText": "Ver Herramientas"
+    },
+    "stunningLayouts": {
+      "label": "Diseños Impresionantes",
+      "badge": "Soluciones Élite",
+      "title": "Construye una experiencia web avanzada.",
+      "description": "Eleva tu marca con tecnología moderna que capta la atención y genera acción. Crea una experiencia digital que destaque entre la multitud.",
+      "buttonText": "Ver Opciones"
+    }
+  }
+}

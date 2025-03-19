@@ -1,0 +1,56 @@
+{
+  "common": {
+    "welcome": "Bienvenido",
+    "login": "Iniciar sesión",
+    "signup": "Registrarse",
+    "logout": "Cerrar sesión",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "submit": "Enviar",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "search": "Buscar",
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito",
+    "language": "Idioma",
+    "latestUpdates": "Últimas Actualizaciones",
+    "blogPosts": "Artículos del Blog",
+    "blogDescription": "Descubre las últimas tendencias, consejos y mejores prácticas en desarrollo web moderno. Desde componentes UI hasta sistemas de diseño, mantente actualizado con nuestras perspectivas expertas.",
+    "viewAllArticles": "Ver todos los artículos"
+  },
+  "hero": {
+    "heading": "Bloques construidos con Shadcn & Tailwind",
+    "description": "Componentes cuidadosamente elaborados construidos con React, Tailwind y Shadcn UI. Los desarrolladores pueden copiar y pegar estos bloques directamente en su proyecto.",
+    "primaryButton": "Registrarse",
+    "secondaryButton": "Comenzar",
+    "reviews": {
+      "from": "de",
+      "reviews": "reseñas"
+    }
+  },
+  "navigation": {
+    "home": "Inicio",
+    "dashboard": "Panel",
+    "profile": "Perfil",
+    "settings": "Configuración"
+  },
+  "auth": {
+    "loginTitle": "Inicia sesión en tu cuenta",
+    "signupTitle": "Crea una nueva cuenta",
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "rememberMe": "Recordarme",
+    "noAccount": "¿No tienes una cuenta?",
+    "hasAccount": "¿Ya tienes una cuenta?"
+  },
+  "verify": {
+    "title": "Verifica tu correo electrónico",
+    "description": "Por favor, revisa tu correo electrónico para verificar tu cuenta."
+  },
+  "waitlist": {
+    "title": "¡Estás en la lista!",
+    "description": "Gracias por unirte a nuestra lista de espera. Te notificaremos cuando lancemos."
+  }
+}

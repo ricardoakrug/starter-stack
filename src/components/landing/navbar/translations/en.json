@@ -1,0 +1,19 @@
+{
+  "logo": "Your Logo",
+  "navigation": {
+    "home": "Home",
+    "features": "Features",
+    "pricing": "Pricing",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "auth": {
+    "login": "Login",
+    "signup": "Sign Up",
+    "logout": "Logout"
+  },
+  "mobile": {
+    "menu": "Menu",
+    "close": "Close"
+  }
+}

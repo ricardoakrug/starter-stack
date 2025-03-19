@@ -1,0 +1,19 @@
+{
+  "logo": "Tu Logo",
+  "navigation": {
+    "home": "Inicio",
+    "features": "Características",
+    "pricing": "Precios",
+    "about": "Sobre Nosotros",
+    "contact": "Contacto"
+  },
+  "auth": {
+    "login": "Iniciar Sesión",
+    "signup": "Registrarse",
+    "logout": "Cerrar Sesión"
+  },
+  "mobile": {
+    "menu": "Menú",
+    "close": "Cerrar"
+  }
+}

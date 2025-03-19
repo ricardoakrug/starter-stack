@@ -1,0 +1,10 @@
+{
+  "heading": "Bloques construidos con Shadcn & Tailwind",
+  "description": "Componentes cuidadosamente elaborados construidos con React, Tailwind y Shadcn UI. Los desarrolladores pueden copiar y pegar estos bloques directamente en su proyecto.",
+  "primaryButton": "Registrarse",
+  "secondaryButton": "Comenzar",
+  "reviews": {
+    "from": "de",
+    "reviews": "reseñas"
+  }
+}

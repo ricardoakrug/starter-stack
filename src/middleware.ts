@@ -1,4 +1,6 @@
 import { NextResponse } from "next/server";
+import createMiddleware from "next-intl/middleware";
+import { locales, defaultLocale } from "./i18n/config";
 
 export function middleware() {
   const response = NextResponse.next();
@@ -30,15 +32,16 @@ export function middleware() {
   return response;
 }
 
+export default createMiddleware({
+  // A list of all locales that are supported
+  locales: locales,
+  // Used when no locale matches
+  defaultLocale: defaultLocale,
+  // If this locale is matched, pathnames work without a prefix (e.g. `/about`)
+  localePrefix: "always",
+});
+
 export const config = {
-  matcher: [
-    /*
-     * Match all request paths except for the ones starting with:
-     * - api (API routes)
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     */
-    "/((?!api|_next/static|_next/image|favicon.ico).*)",
-  ],
+  // Match only internationalized pathnames
+  matcher: ["/", "/(es|en)/:path*"],
 };
